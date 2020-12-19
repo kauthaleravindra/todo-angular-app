@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Create Task</h1>
+<div class="login">
+    <div class="login-form">
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+            <div class="login-form-field">
+<label for="email">Name</label>
+<input type="text" name="name" formControlName="name"/>
+</div>
+<div class="login-form-field">
+
+    <label for="description">Description</label>
+    <textarea type="text" name="description"  formControlName="description" rows="4" cols="50"></textarea>
+</div>
+<div class="login-form-field">
+
+    <label for="password">Status</label>
+    <select name="status" id="status" formControlName="status">
+        <option value="NEW">New</option>
+        <option value="ACTIVE">Acive</option>
+        <option value="DONE">Done</option>
+      </select>
+</div>
+<div class="login-form-button btn btn-default">
+    <button type="submit">Crete Task</button>
+</div>
+</form>
+    </div>
+    <div>
+    </div>

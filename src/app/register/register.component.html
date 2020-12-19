@@ -1,0 +1,27 @@
+
+<div class="container">
+    <h1>Register</h1>
+    <div class="register">
+        <div class="register-form">
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="register-form-field">
+    <label for="email">Email</label>
+    <input type="text" name="email" formControlName="email"/>
+    </div>
+    <div class="register-form-field">
+    
+        <label for="password">Name</label>
+        <input type="text" name="name"  formControlName="name"/>
+    </div>
+    <div class="register-form-field">
+    
+        <label for="password">Password</label>
+        <input type="password" name="password"  formControlName="password"/>
+    </div>
+    <div class="register-form-button">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+        </div>
+        <div>
+        </div>  
