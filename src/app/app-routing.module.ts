@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'todolist',component:TodoListComponent, canActivate:[GuardServiceService]},
-  {path:'createTask',component:CreateTaskComponent}
+  {path:'createTask',component:CreateTaskComponent, canActivate:[GuardServiceService]}
 ];
 
 @NgModule({
