@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit {
   }
 
   getTaskList = ()=>{
-    this.http.get('http://localhost:8080/api/task/todo/list',{}).subscribe((data:any)=>{
+    this.http.get('https://afternoon-basin-70093.herokuapp.com/api/task/todo/list',{}).subscribe((data:any)=>{
       if(data.length <= 0){
         this.router.navigate(['createTask'])
       }else{
@@ -26,7 +26,7 @@ export class TodoListComponent implements OnInit {
   updateStatus = (event:any, todo:any)=>{
     const permission = window.confirm('are you sure, you want to update the satus?');
     if(permission){
-      this.http.put(`http://localhost:8080/api/task/${todo._id}`,{status:event.target.value}).subscribe((data:any)=>{
+      this.http.put(`https://afternoon-basin-70093.herokuapp.com/api/task/${todo._id}`,{status:event.target.value}).subscribe((data:any)=>{
         if(data){
           this.getTaskList();
         }
@@ -40,7 +40,7 @@ export class TodoListComponent implements OnInit {
   deleteTask = (task:any)=>{
     const permission = window.confirm('are you sure, you want to delete the task?');
     if(permission){
-      this.http.delete(`http://localhost:8080/api/task/${task._id}`).subscribe((data:any)=>{
+      this.http.delete(`https://afternoon-basin-70093.herokuapp.com/api/task/${task._id}`).subscribe((data:any)=>{
         if(data){
           this.getTaskList();
         }

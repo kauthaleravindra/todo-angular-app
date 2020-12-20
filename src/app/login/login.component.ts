@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       password:this.profileForm.value.password
     }
     // use post call to the node application for loggin in 
-    this.http.post('http://localhost:8080/auth/user/login',requestBody).subscribe((data:any)=>{
+    this.http.post('https://afternoon-basin-70093.herokuapp.com/auth/user/login',requestBody).subscribe((data:any)=>{
       console.log(data)
       if(data.auth){
         console.log('inside')
