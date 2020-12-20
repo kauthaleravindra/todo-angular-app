@@ -4,7 +4,9 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
-        <th scope="col">status</th>
+        <th scope="col">Status</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +15,12 @@
         <td>{{todo.name}}</td>
         <td>{{todo.description}}</td>
         <td>{{todo.status}}</td>
+        <td><select class="form-control" name="status" id="status" value={{todo.status}} (change)="updateStatus($event, todo)">
+          <option value="NEW">New</option>
+          <option value="ACTIVE">Active</option>
+          <option value="DONE">Done</option>
+        </select></td>
+        <td><button class="btn btn-danger" (click)="deleteTask(todo)">Delete</button></td>
       </tr>
     </tbody>
   </table>

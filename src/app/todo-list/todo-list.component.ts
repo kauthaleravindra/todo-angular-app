@@ -23,9 +23,29 @@ export class TodoListComponent implements OnInit {
      this.todoList = data
     })
   }
-
+  updateStatus = (event:any, todo:any)=>{
+    const permission = window.confirm('are you sure, you want to update the satus?');
+    if(permission){
+      this.http.put(`http://localhost:8080/api/task/${todo._id}`,{status:event.target.value}).subscribe((data:any)=>{
+        if(data){
+          this.getTaskList();
+        }
+      })
+    }
+  }
   task = ()=>{
     this.router.navigate(['createTask'])
+  }
+
+  deleteTask = (task:any)=>{
+    const permission = window.confirm('are you sure, you want to delete the task?');
+    if(permission){
+      this.http.delete(`http://localhost:8080/api/task/${task._id}`).subscribe((data:any)=>{
+        if(data){
+          this.getTaskList();
+        }
+      })
+    }
   }
 
 trackByName =(index:number, task:any)=>{
