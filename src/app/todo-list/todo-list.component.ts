@@ -11,16 +11,16 @@ export class TodoListComponent implements OnInit {
   constructor(public router:Router, private http:HttpClient) { }
   todoList : any = []
   ngOnInit(): void {
-    if(this.todoList.length < 0){
-    this.router.navigate(['createTask'])
-    }
-  this.getTaskList();
+    this.getTaskList();
   }
 
   getTaskList = ()=>{
     this.http.get('http://localhost:8080/api/task/todo/list',{}).subscribe((data:any)=>{
-      console.log({data})
-     this.todoList = data
+      if(data.length <= 0){
+        this.router.navigate(['createTask'])
+      }else{
+        this.todoList = data
+      }
     })
   }
   updateStatus = (event:any, todo:any)=>{
