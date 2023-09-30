@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
       password:this.profileForm.value.password
     }
     if(this.profileForm.value.email)
-    this.http.post('https://afternoon-basin-70093.herokuapp.com/auth/user/register',requestBody).subscribe(data=>{
+    this.http.post('http://localhost:8080/auth/user/register',requestBody).subscribe(data=>{
       console.log(data)
     })
     this.router.navigate(['/login']);

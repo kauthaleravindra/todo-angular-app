@@ -25,7 +25,7 @@ export class CreateTaskComponent implements OnInit {
       name, description, status
     }
     // use post call to the node application for loggin in 
-    this.http.post('https://afternoon-basin-70093.herokuapp.com/api/task',requestBody).subscribe((data:any)=>{
+    this.http.post('http://localhost:8080/api/task',requestBody).subscribe((data:any)=>{
       if(data){
         this.router.navigate(['/todolist']);
       }
